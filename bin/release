@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var release = require('..');
+var pkg = require('../package');
+
+program
+  .version(pkg.version)
+  .usage('files...')
+  .option('-f, --force <version>', 'force a specific version (<newversion> | major | minor | patch)')
+  .parse(process.argv);
+
+release(program.force, function(err) {
+  if (err) {
+    console.error(err.message);
+    process.exit(1);
+  } else {
+    process.exit();
+  }
+});
