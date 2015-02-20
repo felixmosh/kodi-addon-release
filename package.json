@@ -4,7 +4,7 @@
 	"description": "Bump KODI addon version, create tag, update changelog, commit and release the addon in one step.",
 	"main": "./index",
 	"bin": {
-		"release": "./bin/release"
+		"kodi-release": "./bin/kodi-release"
 	},
 	"scripts": {
 		"test": "mocha -r should"
