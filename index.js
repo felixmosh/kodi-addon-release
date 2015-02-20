@@ -97,13 +97,16 @@ function release(type, callback) {
 			type: 'confirm',
 			name: 'updateChangelog',
 			message: 'Do you want to update the changelog?',
-			default: true
+			default: true,
+			when: function (answers) {
+				return answers.version !== 'exit';
+			}
 		}, {
 			type: 'input',
 			name: 'nickname',
 			message: 'What is your nickname? (for changelog)',
 			when: function (answers) {
-				return answers.updateChangelog;
+				return answers.version !== 'exit' && answers.updateChangelog;
 			}
 		}, {
 			type: 'input',
@@ -120,7 +123,7 @@ function release(type, callback) {
 				return (answer.length) ? '\n- ' + answer.join('\n- ') : '';
 			},
 			when: function (answers) {
-				return answers.updateChangelog;
+				return answers.version !== 'exit' && answers.updateChangelog;
 			}
 		}], function (answers) {
 			var version = answers.version;
