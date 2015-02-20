@@ -1,45 +1,45 @@
 {
-	"name": "kodi-addon-release",
-	"version": "1.0.0",
-	"description": "Bump KODI addon version, create tag, update changelog, commit and release the addon in one step.",
-	"main": "./index",
-	"bin": {
-		"kodi-release": "./bin/kodi-release"
-	},
-	"scripts": {
-		"test": "mocha -r should"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/felixmosh/kodi-addon-release.git"
-	},
-	"keywords": [
-		"bump",
-		"tag",
-		"commit",
-		"release",
-		"version",
-		"push",
-		"kodi",
-		"addon"
-	],
-	"author": "Felix",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/felixmosh/kodi-addon-release/issues"
-	},
-	"homepage": "https://github.com/felixmosh/kodi-addon-release",
-	"dependencies": {
-		"array.prototype.find": "^1.0.0",
-		"chalk": "^0.5.1",
-		"commander": "^2.1.0",
-		"inquirer": "^0.8.0",
-		"semver": "^4.2.2",
-		"shelljs": "^0.3.0",
-		"xmldom": "^0.1.19"
-	},
-	"devDependencies": {
-		"mock": "^0.1.1",
-		"should": "^4.6.2"
-	}
+  "name": "kodi-addon-release",
+  "version": "1.0.1",
+  "description": "Bump KODI addon version, create tag, update changelog, commit and release the addon in one step.",
+  "main": "./index",
+  "bin": {
+    "kodi-release": "./bin/kodi-release"
+  },
+  "scripts": {
+    "test": "mocha -r should"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixmosh/kodi-addon-release.git"
+  },
+  "keywords": [
+    "bump",
+    "tag",
+    "commit",
+    "release",
+    "version",
+    "push",
+    "kodi",
+    "addon"
+  ],
+  "author": "Felix",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felixmosh/kodi-addon-release/issues"
+  },
+  "homepage": "https://github.com/felixmosh/kodi-addon-release",
+  "dependencies": {
+    "array.prototype.find": "^1.0.0",
+    "chalk": "^0.5.1",
+    "commander": "^2.1.0",
+    "inquirer": "^0.8.0",
+    "semver": "^4.2.2",
+    "shelljs": "^0.3.0",
+    "xmldom": "^0.1.19"
+  },
+  "devDependencies": {
+    "mock": "^0.1.1",
+    "should": "^4.6.2"
+  }
 }
