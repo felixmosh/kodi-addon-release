@@ -1,5 +1,5 @@
 # kodi-addon-release
-> Bump KODI addon version, create tag, update changelog, commit and release the addon in one step.
+> Bump KODI addon version, update changelog, create tag, commit and release the addon in one step.
 
 ## Installation
 
@@ -16,12 +16,13 @@ kodi-release
 ```
 
 By default, this will
-* execute .git/hooks/pre-release (if present)
-* increment the patch version (ex: from 1.2.0 to 1.2.1) in the package.json file using the [Semantic Versioning specification](http://semver.org/)
-* commit the package.json file
-* create a Git tag for the new version
-* push to the remote server
-* execute .git/hooks/post-release (if present)
+* Execute .git/hooks/pre-release (if present)
+* Increment the patch version (ex: from 1.2.0 to 1.2.1) in the addon.xml file using the [Semantic Versioning specification](http://semver.org/)
+* Ask you to update the changelog.txt
+* Commit the addon.xml file
+* Create a Git tag for the new version
+* Push to the remote server
+* Execute .git/hooks/post-release (if present)
 
 Force a specific version
 
