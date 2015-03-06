@@ -59,7 +59,7 @@ function updateChangelog(version, nickname, changes) {
 		("0" + (ts_hms.getMonth() + 1)).slice(-2) + '/' +
 		ts_hms.getFullYear();
 
-	var changelog = version + ' - ' + ((nickname !== '') ? 'by ' + nickname + '' : '') + '(' + date + ')';
+	var changelog = version + ' - ' + ((nickname !== '') ? 'by ' + nickname + ' ' : '') + '(' + date + ')';
 	changelog += changes + '\n\n';
 
 	fs.writeFileSync(filename, changelog + file);
