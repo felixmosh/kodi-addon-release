@@ -50,7 +50,7 @@ function getOrCreateNewsNode(doc) {
   return newsList.item(0);
 }
 
-function createChangelog({ nickname, version, changes }) {
+function createChangelog({ nickname, version }) {
   const now = new Date();
   const date = [
     `${now.getDate()}`.padStart(2, '0'),
@@ -59,14 +59,15 @@ function createChangelog({ nickname, version, changes }) {
   ].join('.');
 
   const nicknamePart = !!nickname ? `by ${nickname} ` : '';
-  return `v${version} - ${nicknamePart}[${date}]${changes}`;
+
+  return { version: `v${version}`, nick: nicknamePart, date };
 }
 
 function updateNews(doc, answers) {
-  const changelog = createChangelog(answers);
+  const { version, nick, date } = createChangelog(answers);
 
   const news = getOrCreateNewsNode(doc);
-  news.textContent = changelog;
+  news.textContent = `${version} - ${nick}[${date}]${answers.changes}`;
 }
 
 function updateChangelog(answers) {
@@ -78,9 +79,12 @@ function updateChangelog(answers) {
   }
 
   const currentContent = fs.readFileSync(filename, 'utf8');
-  const changelog = createChangelog(answers);
+  const { nick, version, date } = createChangelog(answers);
 
-  fs.writeFileSync(filename, '### ' + changelog + '\n\n' + currentContent);
+  fs.writeFileSync(
+    filename,
+    `## ${version}\n> ${date} - ${nick}${answers.changes}\n\n${currentContent}`
+  );
 }
 
 function hook(name) {
