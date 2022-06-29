@@ -1,6 +1,6 @@
 {
   "name": "kodi-addon-release",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Bump KODI addon version, create tag, update changelog, commit and release the addon in one step.",
   "main": "./index",
   "bin": {
