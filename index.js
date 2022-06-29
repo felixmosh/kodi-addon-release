@@ -101,8 +101,7 @@ function git(version) {
   shell.exec('git add .');
   run('git commit -m "Version ' + version + '"', 'All files committed');
   run('git tag -a ' + tag + ' -m "Tag ' + tag + '"', 'Tag ' + tag + ' created');
-  run('git push', 'Pushed to remote');
-  run('git push --tags', 'Pushed new tag ' + tag + ' to remote');
+  run('git push origin --tags', 'Pushed to remote with tags');
   hook('post-release');
 }
 
