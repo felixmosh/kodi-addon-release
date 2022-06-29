@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-var release = require('..');
-var pkg = require('../package');
+const { program } = require('commander');
+const release = require('../index');
+const pkg = require('../package.json');
 
 program
   .version(pkg.version)
   .usage('files...')
-  .option('-f, --force <version>', 'force a specific version (<newversion> | major | minor | patch)')
+  .option('-f, --force <version>', 'Force a specific version (<newversion> | major | minor | patch)')
   .parse(process.argv);
 
-release(program.force, function(err) {
+release(program.opts(), function(err) {
   if (err) {
     console.error(err.message);
     process.exit(1);

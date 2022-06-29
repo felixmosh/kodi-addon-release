@@ -6,8 +6,13 @@
   "bin": {
     "kodi-release": "./bin/kodi-release"
   },
+  "engines": {
+    "node": ">14"
+  },
   "scripts": {
-    "test": "mocha -r should"
+    "test": "mocha -r should",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "release": "release-it --only-version"
   },
   "repository": {
     "type": "git",
@@ -23,23 +28,41 @@
     "kodi",
     "addon"
   ],
-  "author": "Felix",
+  "author": "felixmosh",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/felixmosh/kodi-addon-release/issues"
   },
   "homepage": "https://github.com/felixmosh/kodi-addon-release",
   "dependencies": {
-    "array.prototype.find": "^1.0.0",
-    "chalk": "^0.5.1",
-    "commander": "^2.1.0",
-    "inquirer": "^0.8.0",
-    "semver": "^4.2.2",
-    "shelljs": "^0.3.0",
-    "xmldom": "^0.1.19"
+    "@xmldom/xmldom": "^0.8.2",
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "inquirer": "^8.2.4",
+    "semver": "^7.3.7",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
-    "mock": "^0.1.1",
+    "@types/commander": "^2.12.2",
+    "@types/inquirer": "^8.2.1",
+    "@types/semver": "^7.3.10",
+    "@types/shelljs": "^0.8.11",
+    "auto-changelog": "^2.4.0",
+    "prettier": "^2.7.1",
+    "release-it": "^15.0.0",
     "should": "^4.6.2"
+  },
+  "release-it": {
+    "git": {
+      "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+    },
+    "hooks": {
+      "after:bump": [
+        "npx auto-changelog -p"
+      ]
+    },
+    "github": {
+      "release": true
+    }
   }
 }
